@@ -7,6 +7,7 @@ RUN rpm-ostree override remove \
     && systemctl enable \
       libvirtd.service \
       rpm-ostreed-automatic.timer \
+      docker.service \
     && systemctl disable zincati.service
 COPY cosign.pub /usr/etc/pki/containers/ii.pub
 COPY files /
