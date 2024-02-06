@@ -43,7 +43,7 @@ RUN rpm-ostree override remove \
   --install=PACKAGE_TO_INSTALL_3
 ```
 
-services are enabled inline with `systemctl enable` and `systemctl disable`
+services are managed inline with `systemctl enable` and `systemctl disable`
 
 ## No-time iteration
 
@@ -53,6 +53,26 @@ given an image is built in CI and pushed
 rpm-ostree upgrade
 rpm-ostree apply-live
 ```
+
+## Build image with bootc-image-builder
+
+build a qcow2 image with the following
+
+```shell
+mkdir -p ./output
+sudo podman run \
+    --rm \
+    -it \
+    --privileged \
+    --pull=newer \
+    --security-opt label=type:unconfined_t \
+    -v $(pwd)/output:/output \
+    quay.io/centos-bootc/bootc-image-builder:latest \
+    --type qcow2 \
+    ghcr.io/ii/corehost/corehost:stable
+```
+
+to output to `./output/qcow2/disk.qcow2`.
 
 ## Equinix Metal iPXE booting
 
