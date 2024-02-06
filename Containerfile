@@ -3,7 +3,10 @@ FROM quay.io/fedora/fedora-coreos:${COREOS_VERSION}
 RUN rpm-ostree override remove \
     nfs-utils-coreos \
     --install=libvirt \
-    && systemctl enable libvirtd.service \
+    --install=bootc \
+    && systemctl enable \
+      libvirtd.service \
+      rpm-ostreed-automatic.timer \
     && systemctl disable zincati.service
 COPY cosign.pub /usr/etc/pki/containers/ii.pub
 COPY files /
