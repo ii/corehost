@@ -9,3 +9,7 @@ rpm-ostree reset
 rpm-ostree rebase ostree-unverified-registry:ghcr.io/ii/corehost/corehost:stable
 ```
 (as root)
+
+## Equinix Metal iPXE booting
+
+read [this doc](./equinix-metal-ipxe-boot/README.md)
