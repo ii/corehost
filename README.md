@@ -74,6 +74,14 @@ sudo podman run \
 
 to output to `./output/qcow2/disk.qcow2`.
 
+## Verifying an image
+
+verify an image is signed by this repo's key with the following command
+
+```shell
+cosign verify --key ./cosign.pub IMAGE
+```
+
 ## Equinix Metal iPXE booting
 
 read [this doc](./equinix-metal-ipxe-boot/README.md)
