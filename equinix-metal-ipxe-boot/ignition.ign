@@ -4,9 +4,9 @@
     "units": [
       {
         "name": "zincati.service",
-         "enabled": false
-      },
-    ],
+        "enabled": false
+      }
+    ]
   },
   "passwd": {
     "users": [
