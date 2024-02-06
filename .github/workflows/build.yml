@@ -2,6 +2,11 @@ on:
   push: {}
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
 jobs:
   build-stable:
     uses: ublue-os/ucore/.github/workflows/reusable-build.yml@main
