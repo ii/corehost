@@ -4,8 +4,8 @@ RUN rpm-ostree override remove \
     nfs-utils-coreos \
     --install=libvirt \
     --install=qemu \
-    --install=bootc \
-    && systemctl enable \
+    --install=bootc
+RUN systemctl enable \
       libvirtd.service \
       rpm-ostreed-automatic.timer \
       docker.service \
