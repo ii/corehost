@@ -1,0 +1,10 @@
+on:
+  push: {}
+  workflow_dispatch: {}
+
+jobs:
+  build-stable:
+    uses: ublue-os/ucore/.github/workflows/reusable-build.yml@main
+    secrets: inherit
+    with:
+      coreos_version: stable
