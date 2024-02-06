@@ -4,7 +4,8 @@ RUN rpm-ostree override remove \
     nfs-utils-coreos \
     --install=libvirt \
     --install=qemu \
-    --install=bootc
+    --install=bootc \
+    --install=osbuild-selinux
 RUN systemctl enable \
       libvirtd.service \
       rpm-ostreed-automatic.timer \
