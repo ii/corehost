@@ -5,5 +5,7 @@
 ## Switching to the image
 
 ```shell
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/ii/corehost:latest
+rpm-ostree reset
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ii/corehost/corehost:stable
 ```
+(as root)
