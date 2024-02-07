@@ -22,14 +22,18 @@ jobs:
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
           COREOS_VERSION="stable"
+          BRANCH="${GITHUB_REF#refs/heads/}"
 
           COMMIT_TAGS=()
+          BRANCH_TAGS=()
           BUILD_TAGS=()
 
           # Have tags for tracking builds during pull request
           SHA_SHORT="${GITHUB_SHA::7}"
           COMMIT_TAGS+=("pr-${{ github.event.number }}-${COREOS_VERSION}")
           COMMIT_TAGS+=("${SHA_SHORT}-${COREOS_VERSION}")
+
+          BRANCH_TAGS+=("${COREOS_VERSION}-${BRANCH}")
 
           BUILD_TAGS=("${COREOS_VERSION}" "${COREOS_VERSION}-${TIMESTAMP}")
 
@@ -40,6 +44,15 @@ jobs:
               done
 
               alias_tags=("${COMMIT_TAGS[@]}")
+
+          elif [[ "${BRANCH}" != "main" ]]; then
+              echo "Generated the following branch tags: "
+              for TAG in "${BRANCH_TAGS[@]}"; do
+                  echo "${TAG}"
+              done
+
+              alias_tags=("${BRANCH_TAGS[@]}")
+
           else
               alias_tags=("${BUILD_TAGS[@]}")
           fi
