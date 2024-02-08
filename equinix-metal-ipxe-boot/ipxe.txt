@@ -3,7 +3,7 @@
 set STREAM stable
 set VERSION 39.20240112.3.0
 set INSTALLDEV /dev/sda
-set CONFIGURL https://raw.githubusercontent.com/ii/corehost/hh/equinix-metal-ipxe-boot/ignition.ign
+set CONFIGURL https://raw.githubusercontent.com/ii/corehost/main/equinix-metal-ipxe-boot/ignition.ign
 
 set BASEURL https://builds.coreos.fedoraproject.org/prod/streams/${STREAM}/builds/${VERSION}/x86_64
 

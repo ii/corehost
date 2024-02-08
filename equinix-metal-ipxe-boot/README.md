@@ -6,7 +6,7 @@ when creating a machine, choose OS iPXE and put in the URL
 
 ``` shell
 metal device create \
-    --ipxe-script-url https://raw.githubusercontent.com/ii/corehost/hh/equinix-metal-ipxe-boot/ipxe.txt \
+    --ipxe-script-url https://raw.githubusercontent.com/ii/corehost/main/equinix-metal-ipxe-boot/ipxe.txt \
     --operating-system custom_ipxe \
     --plan c2.medium.x86 \
     --metro sv \
