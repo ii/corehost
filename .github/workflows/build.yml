@@ -21,7 +21,7 @@ jobs:
         run: |
           # Generate a timestamp for creating an image version history
           TIMESTAMP="$(date +%Y%m%d)"
-          COREOS_VERSION="stable"
+          COREOS_VERSION="testing"
           BRANCH="${GITHUB_REF#refs/heads/}"
 
           COMMIT_TAGS=()
@@ -89,8 +89,6 @@ jobs:
           image: corehost
           tags: |
             ${{ steps.generate-tags.outputs.alias_tags }}
-          build-args: |
-            COREOS_VERSION=stable
           labels: ${{ steps.meta.outputs.labels }}
           oci: false
 
