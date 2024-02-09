@@ -6,7 +6,7 @@ RUN rpm-ostree override remove \
     --install=qemu \
     --install=bootc \
     --install=osbuild-selinux
-RUN rpm-ostree install https://bodhi.fedoraproject.org/updates/FEDORA-2024-a1ac5fb998
+RUN rpm-ostree override replace https://bodhi.fedoraproject.org/updates/FEDORA-2024-a1ac5fb998
 RUN systemctl enable \
       libvirtd.service \
       rpm-ostreed-automatic.timer \
