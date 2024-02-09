@@ -5,6 +5,16 @@
       {
         "name": "zincati.service",
         "enabled": false
+      },
+      {
+        "name": "rebase-to-corehost.service",
+        "enabled": true,
+        "contents": "[Unit]\nDescription=Fetch and deploy target image\nAfter=network-online.target\nConditionPathExists=!/root/.postRebase\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStartPre=sleep 10\nExecStartPre=mount /dev/disk/by-label/boot /boot\n\nExecStart=rpm-ostree rebase ostree-unverified-registry:ghcr.io/ii/corehost/corehost:latest\n\nExecStartPost=touch /root/postRebase\nExecStartPost=systemctl reboot\n\n[Install]\nWantedBy=multi-user.target"
+      },
+      {
+        "name": "rebase-to-corehost-signed.service",
+        "enabled": true,
+        "contents": "[Unit]\nDescription=Fetch and deploy target image\nAfter=network-online.target\nConditionPathExists=!/root/.postRebaseSigned\n\n[Service]\nType=oneshot\nRemainAfterExit=yes\nExecStartPre=sleep 10\nExecStartPre=mount /dev/disk/by-label/boot /boot\n\nExecStart=rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ii/corehost/corehost:stable\n\nExecStartPost=touch /root/postRebaseSigned\n\n[Install]\nWantedBy=multi-user.target"
       }
     ]
   },
