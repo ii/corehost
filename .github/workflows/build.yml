@@ -1,6 +1,8 @@
 on:
   push: {}
   workflow_dispatch: {}
+  schedule:
+    - cron: '40 23 * * *'
 
 permissions:
   contents: read
