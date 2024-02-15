@@ -4,4 +4,4 @@ on:
   workflow_dispatch: {}
 jobs:
   iso:
-    uses: ublue-os/isogenerator/.github/workflows/iso.yml@feec50596aaee24e1e943c2279ce7383b6de62d4
+    uses: ublue-os/isogenerator/.github/workflows/iso.yml@aba2f56ebd2439e80336d14e17c24508d97d080a
