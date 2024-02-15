@@ -1,0 +1,7 @@
+---
+on:
+  push: {}
+  workflow_dispatch: {}
+jobs:
+  iso:
+    uses: ublue-os/isogenerator/.github/workflows/iso.yml@feec50596aaee24e1e943c2279ce7383b6de62d4
