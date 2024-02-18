@@ -4,4 +4,10 @@ on:
   workflow_dispatch: {}
 jobs:
   iso:
-    uses: ublue-os/isogenerator/.github/workflows/iso.yml@aba2f56ebd2439e80336d14e17c24508d97d080a
+    uses: ublue-os/isogenerator/.github/workflows/iso.yml@main
+    with:
+      IMAGE_VERSION: stable
+      IMAGE_ARCH: x86_64
+      IMAGE_NAME: corehost
+      IMAGE_REPO: ghcr.io/ii
+      VARIANT: coreos
