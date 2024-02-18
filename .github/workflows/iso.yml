@@ -6,8 +6,10 @@ jobs:
   iso:
     uses: ublue-os/isogenerator/.github/workflows/iso.yml@main
     with:
-      IMAGE_VERSION: stable
-      IMAGE_ARCH: x86_64
+      ARCH: x86_64
       IMAGE_NAME: corehost
       IMAGE_REPO: ghcr.io/ii
+      IMAGE_TAG: stable
       VARIANT: coreos
+      VERSION: 39
+      WEB_UI: false
