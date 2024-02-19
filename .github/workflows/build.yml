@@ -102,7 +102,7 @@ jobs:
         id: registry_case
         uses: ASzc/change-string-case-action@v6
         with:
-          string: ghcr.io/${{ github.repository }}
+          string: ghcr.io/${{ github.repository_owner }}
 
       # Push the image to GHCR (Image Registry)
       - name: Push To GHCR
