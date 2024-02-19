@@ -17,14 +17,14 @@ rpm-ostree reset
 
 rebase to the image
 ```shell
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/ii/corehost/corehost:stable
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/ii/corehost:stable
 ```
 (as root)
 and reboot
 
 then rebase to the signed version
 ```shell
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ii/corehost/corehost:stable
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/ii/corehost:stable
 ```
 
 ## Making changes
@@ -69,10 +69,23 @@ sudo podman run \
     -v $(pwd)/output:/output \
     quay.io/centos-bootc/bootc-image-builder:latest \
     --type qcow2 \
-    ghcr.io/ii/corehost/corehost:stable
+    ghcr.io/ii/corehost:stable
 ```
 
 to output to `./output/qcow2/disk.qcow2`.
+
+## Build ISO with isogenerator
+
+```shell
+sudo podman run \
+  --rm --privileged \
+  -v ./output:/isogenerator/output \
+  -e IMAGE_REPO="ghcr.io/ii" \
+  -e IMAGE_NAME="corehost" \
+  -e VARIANT="coreos" \
+  -e IMAGE_TAG="stable" \
+  ghcr.io/ublue-os/isogenerator
+```
 
 ## Verifying an image
 
