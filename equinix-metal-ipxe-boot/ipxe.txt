@@ -1,7 +1,7 @@
 #!ipxe
 
 set STREAM stable
-set VERSION 39.20240112.3.0
+set VERSION 39.20240128.3.0
 set INSTALLDEV /dev/sda
 set CONFIGURL https://raw.githubusercontent.com/ii/corehost/main/equinix-metal-ipxe-boot/ignition.ign
 
