@@ -20,7 +20,7 @@ jobs:
           ARCH: x86_64
           IMAGE_NAME: corehost
           IMAGE_REPO: ghcr.io/ii
-          IMAGE_TAG: latest
+          IMAGE_TAG: stable
           VARIANT: CoreOS
           VERSION: 39
           WEB_UI: false
