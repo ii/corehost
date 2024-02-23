@@ -2,6 +2,11 @@ ARG COREOS_VERSION="${COREOS_VERSION:-stable}"
 FROM quay.io/fedora/fedora-coreos:${COREOS_VERSION}
 RUN rpm-ostree override remove \
     nfs-utils-coreos \
+    --install=gdisk \
+    --install=cloud-utils \
+    --install=strace \
+    --install=vim \
+    --install=netcat \
     --install=libvirt \
     --install=qemu \
     --install=bootc \
